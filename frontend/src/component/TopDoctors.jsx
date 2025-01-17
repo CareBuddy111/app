@@ -7,7 +7,7 @@ const TopDoctors = () => {
     const {doctors} = useContext(AppContext)
   return (
     <div className='flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10'>
-        <h1 className='text-3xl font-medium'>Leading Physicians for Appointments</h1>
+        <h1 className='text-3xl font-medium text-blue-800'>Leading Physicians for Appointments</h1>
         <p className='sm:w-1/2  text-center text-sm'>Browse through our top-rated doctors and book your appointment with trusted healthcare professionals who are dedicated to providing the best care</p>
         <div className='w-full grid grid-cols-auto gap-4 pt-5 gap-y-6 px-3 sm:px-0'>
             {doctors.slice(0,10).map((item,index)=>(
