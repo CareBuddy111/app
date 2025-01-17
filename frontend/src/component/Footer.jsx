@@ -1,7 +1,14 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const navigateAndScrollToTop = (path) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <div className='md:mx-10'>
 
@@ -17,9 +24,9 @@ const Footer = () => {
         <div>
            <p className='text-xl font-medium mb-5'>COMPANY</p>
            <ul className='flex flex-col gap-2 text-gray-600'>
-            <li>Home</li>
-            <li>About us</li>
-            <li>Contact us</li>
+            <NavLink to="/"><li  onClick={() => navigateAndScrollToTop('/')}>Home</li></NavLink>
+            <NavLink to="/about"><li  onClick={() => navigateAndScrollToTop('/about')}>About us</li></NavLink>
+            <NavLink to="/contact"><li  onClick={() => navigateAndScrollToTop('/contact')}>Contact us</li></NavLink>
             <li>Privacy policy</li>
            </ul>
         </div>

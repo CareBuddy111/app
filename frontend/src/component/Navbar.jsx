@@ -15,7 +15,7 @@ const Navbar = () => {
     return (
         <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-gray-400'>
             {/* Logo */}
-            <div onClick={() => navigate("/")} className='logo text-2xl text-blue-600 font-bold cursor-pointer'>
+            <div onClick={() => navigate("/")} className='logo text-2xl text-blue-800 font-bold cursor-pointer'>
                 <span>Care</span><strong>Buddy</strong>
             </div>
 
