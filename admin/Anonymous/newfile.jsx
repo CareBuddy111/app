@@ -2,7 +2,9 @@ import React from 'react'
 
 const newfile = () => {
   return (
-    <div>newfile</div>
+    <div>
+      <h1>newfile</h1>
+    </div>
   )
 }
 
