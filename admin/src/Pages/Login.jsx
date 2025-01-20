@@ -40,7 +40,7 @@ const Login = () =>{
     return(
         <form onSubmit={onSubmitHandler} className="min-h-[80vh] flex items-center">
             <div className="flex flex-col gap-3 m-auto items-start p-8 min-w-[340px sm:min-w-96 border rounded-x1 text-[#5E5E5E] text-sm shadow-1g">
-                <p className="text-2xl font-semibold m-auto"><span className="text-primary">{state}</span>Login</p>
+                <p className="text-2xl font-semibold m-auto"><span className="text-primary">{state}</span> Login</p>
                 <div className="w-full">
                     <p>Email</p>
                     <input onChange={(e)=>setEmail(e.target.value)} value={email} className="border border-[#dadada] rounded w-full p-2 mt-1" type="email" required />
@@ -49,10 +49,7 @@ const Login = () =>{
                     <p>Password</p>
                     <input onChange={(e)=>setPassword(e.target.value)} value={password}  className="border border-[#dadada] rounded w-full p-2 mt-1" type="password" required />
                 </div>
-                {/* <div>
-                    <p>Email</p>
-                    <input type="email" required />
-                </div> */}
+               
                 <button className="bg-primary text-white w-full py-2 rounded-md text-base">Login</button>
                 {
                     state === "Admin"

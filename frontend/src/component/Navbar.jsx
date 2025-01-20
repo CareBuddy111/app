@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { assets } from '../assets/assets';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
     const navigate = useNavigate();
+    
+
+    const {token,setToken, userData} = useContext(AppContext)
     const [showMenu, setShowMenu] = useState(false);
-    const [token, setToken] = useState(true);
+    // const [token, setToken] = useState(true);
+
+    const logout = () =>{
+        setToken(false)
+        localStorage.removeItem("token")
+    }
+    
     const [showDropdown, setShowDropdown] = useState(false);
 
     const toggleDropdown = () => {
@@ -37,16 +47,17 @@ const Navbar = () => {
 
             {/* Right Section */}
             <div className='flex items-center gap-4'>
-                {token ? (
+                {token && user 
+                ? (
                     <div className='relative cursor-pointer flex items-center gap-2'>
-                        <img className='w-8 rounded-full' src={assets.profile_pic} alt="Profile" onClick={toggleDropdown} />
+                        <img className='w-8 rounded-full' src={userData.image} alt="Profile" onClick={toggleDropdown} />
                         <img className='w-2.5' src={assets.dropdown_icon} alt="Dropdown" onClick={toggleDropdown} />
                         {showDropdown && (
                             <div className='absolute top-12 right-0 bg-white shadow-lg rounded-md py-2'>
                                 <div className='flex flex-col gap-2 px-4'>
                                     <p onClick={() => { navigate("/my-profile"); setShowDropdown(false); }} className='cursor-pointer hover:text-black'>My Profile</p>
                                     <p onClick={() => { navigate("/my-appointment"); setShowDropdown(false); }} className='cursor-pointer hover:text-black'>My Appointment</p>
-                                    <p onClick={() => { setToken(false); setShowDropdown(false); }} className='cursor-pointer hover:text-black'>Logout</p>
+                                    <p onClick={() => { logout ; setShowDropdown(false); }} className='cursor-pointer hover:text-black'>Logout</p>
                                 </div>
                             </div>
                         )}
